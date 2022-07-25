@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+	<meta charset="utf-8">
+</head>
+
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center" th:text="${titulo}"></h1>
+				<div class="card-body">
+					<form th:action="@{/formJ}" th:object="${empleado}" method="post">
+						<input type="hidden" th:field="*{id}" th:value="${empleado.id}" />
+						
+						<div class="form-group">
+							<label>Número de Cédula prueba  </label>
+							<input type="number" th:field="*{identificacion}" class="form-control"
+								th:errorclass="'form-control alert-danger'" />
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('identificacion')}"
+								th:errors="*{identificacion}"></small>
+						</div>
+						
+						
+						
+						<div class="form-group">
+							<label>Nombre(s) : </label>
+							<input type="text" th:field="*{nombre}" class="form-control"
+								th:errorclass="'form-control alert-danger'" />
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
+								th:errors="*{nombre}"></small>
+						</div>
+						<div class="form-group">
+							<label>Apellido(s) : </label>
+							<input type="text" th:field="*{apellido}" class="form-control"
+								th:errorclass="'form-control alert-danger'" />
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}"
+								th:errors="*{apellido}"></small>
+						</div>
+						<div class="form-group">
+							<label>Cargo : </label>
+							<input type="text" th:field="*{cargo}" class="form-control"
+								th:errorclass="'form-control alert-danger'" />
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('cargo')}"
+								th:errors="*{cargo}"></small>
+						</div>
+						<div class="form-group">
+							<label>Fecha : </label>
+							<input type="date" th:field="*{fecha}" class="form-control"
+								th:errorclass="'form-control alert-danger'" />
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('fecha')}"
+								th:errors="*{fecha}"></small>
+						</div>
+						
+						<h1>DESEMPEÑO</h1>
+						
+						<th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                			<label id="label_79_row_0"> RESPONSABILIDAD - Grado de compromiso que asume para el cumplimiento de las metas. Grado de tranquilidad que le genera a su superior. </label>
+              			</th>
+						  
+						<div class="form-group">
+				             <select th:field="*{desempenoJ}"th:errorclass="'form-control alert-danger'" >
+				                		  <option value="1"> 1 </option>
+						                  <option value="2"> 2 </option>
+						                  <option value="3"> 3 </option>
+						                  <option value="4"> 4 </option>
+						                  <option value="5"> 5 </option>
+				             </select>
+				             <small class="form-text text-danger" th:if="${#fields.hasErrors('desempenoJ')}"
+								th:errors="*{desempenoJ}"></small>
+              			</div>
+              			
+              			<div class="form-group" hidden>
+				             <select th:field="*{desempenoA}"th:errorclass="'form-control alert-danger'" >
+				                		  <option value="1"> 1 </option>
+						                  <option value="2"> 2 </option>
+						                  <option value="3"> 3 </option>
+						                  <option value="4"> 4 </option>
+						                  <option value="5"> 5 </option>
+				             </select>
+				             <small class="form-text text-danger" th:if="${#fields.hasErrors('desempenoA')}"
+								th:errors="*{desempenoA}"></small>
+              			</div>
+              			
+              				<div class="form-group" hidden>
+				             <select th:field="*{desempenoC}"th:errorclass="'form-control alert-danger'" >
+				                		  <option value="1"> 1 </option>
+						                  <option value="2"> 2 </option>
+						                  <option value="3"> 3 </option>
+						                  <option value="4"> 4 </option>
+						                  <option value="5"> 5 </option>
+				             </select>
+				             <small class="form-text text-danger" th:if="${#fields.hasErrors('desempenoC')}"
+								th:errors="*{desempenoC}"></small>
+              			</div>
+              			
+              			<h1>FACTOR HUMANO - ACTITUDES</h1>
+						
+						<th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                			<label id="label_79_row_0"> GRADO DE CONOCIMIENTO TÉCNICO - Conocimiento de las distintas herramientas necesarias para desarrollar sus labores ( Programas, bases de datos, leyes, normas, sistemas, etc.) </label>
+              			</th>
+						  
+						<div class="form-group">
+				             <select th:field="*{factorhumanoJ}"th:errorclass="'form-control alert-danger'" >
+				                		  <option value="1"> 1 </option>
+						                  <option value="2"> 2 </option>
+						                  <option value="3"> 3 </option>
+						                  <option value="4"> 4 </option>
+						                  <option value="5"> 5 </option>
+				             </select>
+				             <small class="form-text text-danger" th:if="${#fields.hasErrors('factorhumanoJ')}"
+								th:errors="*{factorhumanoJ}"></small>
+              			</div>
+              			
+              			<div class="form-group" hidden>
+				             <select th:field="*{factorhumanoA}"th:errorclass="'form-control alert-danger'" >
+				                		  <option value="1"> 1 </option>
+						                  <option value="2"> 2 </option>
+						                  <option value="3"> 3 </option>
+						                  <option value="4"> 4 </option>
+						                  <option value="5"> 5 </option>
+				             </select>
+				             <small class="form-text text-danger" th:if="${#fields.hasErrors('factorhumanoA')}"
+								th:errors="*{factorhumanoA}"></small>
+              			</div>
+              			
+              				  
+						<div class="form-group" hidden>
+				             <select th:field="*{factorhumanoC}"th:errorclass="'form-control alert-danger'" >
+				                		  <option value="1"> 1 </option>
+						                  <option value="2"> 2 </option>
+						                  <option value="3"> 3 </option>
+						                  <option value="4"> 4 </option>
+						                  <option value="5"> 5 </option>
+				             </select>
+				             <small class="form-text text-danger" th:if="${#fields.hasErrors('factorhumanoC')}"
+								th:errors="*{factorhumanoC}"></small>
+              			</div>
+              			
+              			<h1>HABILIDADES</h1>
+						
+						<th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                			<label id="label_84_row_0"> INICIATIVA Y CREATIVIDAD - Inquietud por avanzar y mejorar. Facilidad para ofrecerse como ejecutor de sus propuestas. Tiene empuje. Ofrece alternativas innovadoras para solucionar problemas. </label>
+              			</th>
+						  
+						<div class="form-group">
+				             <select th:field="*{habilidadesJ}"th:errorclass="'form-control alert-danger'" aria-labelledby="label_79_col_0 label_79_row_1" >
+				                		  <option value="1"> 1 </option>
+						                  <option value="2"> 2 </option>
+						                  <option value="3"> 3 </option>
+						                  <option value="4"> 4 </option>
+						                  <option value="5"> 5 </option>
+				             </select>
+				             <small class="form-text text-danger" th:if="${#fields.hasErrors('habilidadesJ')}"
+								th:errors="*{habilidadesJ}"></small>
+              			</div>
+              			
+              			<div class="form-group" hidden>
+				             <select th:field="*{habilidadesA}"th:errorclass="'form-control alert-danger'" aria-labelledby="label_79_col_0 label_79_row_1" >
+				                		  <option value="1"> 1 </option>
+						                  <option value="2"> 2 </option>
+						                  <option value="3"> 3 </option>
+						                  <option value="4"> 4 </option>
+						                  <option value="5"> 5 </option>
+				             </select>
+				              <small class="form-text text-danger" th:if="${#fields.hasErrors('habilidadesA')}"
+								th:errors="*{habilidadesA}"></small>
+              			</div>
+              			
+              			<div class="form-group" hidden>
+				             <select th:field="*{habilidadesC}"th:errorclass="'form-control alert-danger'" aria-labelledby="label_79_col_0 label_79_row_1" >
+				                		  <option value="1"> 1 </option>
+						                  <option value="2"> 2 </option>
+						                  <option value="3"> 3 </option>
+						                  <option value="4"> 4 </option>
+						                  <option value="5"> 5 </option>
+				             </select>
+				             <small class="form-text text-danger" th:if="${#fields.hasErrors('habilidadesC')}"
+								th:errors="*{habilidadesC}"></small>
+              			</div>
+            						
+							<input type="submit" value="Guardar" class="btn btn-primary">
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<meta charset="utf-8">
+</head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+	<div class="container py-4">
+	   <div class="card bg-light">
+	       <div class="card-header" th:text="${titulo}">
+	       </div>
+	       <div class="card-body">
+	          <ul class="list-group">
+	          	 <label> Cédula:</label>
+	             <li class="list-group-item active" th:text="${empleado.identificacion}"></li>
+	              <label> Nombre(s): </label>
+	             <li class="list-group-item active" th:text="${empleado.nombre}"></li>
+	              <label> Apellido(s):</label>
+	             <li class="list-group-item" th:text="${empleado.apellido}"></li>
+	              <label> Cargo :</label>
+	             <li class="list-group-item" th:text="${empleado.cargo}"></li>
+	              <label> Fecha</label>
+	             <li class="list-group-item" th:text="${empleado.fecha}"></li>
+	             
+	             <label> Promedio Desempeño: </label>
+	             <li class="list-group-item" th:text="(${empleado.desempenoA} + ${empleado.desempenoJ} + ${empleado.desempenoC}) / 3"></li>
+	           
+	             <label> Promedio Factor Humano: </label>
+	             <li class="list-group-item" th:text="(${empleado.factorhumanoA} + ${empleado.factorhumanoJ} + ${empleado.factorhumanoC}) / 3"></li>
+	             
+	             <label> Promedio Habilidades </label>
+	             <li class="list-group-item" th:text="(${empleado.habilidadesA} + ${empleado.habilidadesJ} + ${empleado.habilidadesC}) / 3"></li>
+	             
+	              <label> Nota Definitiva </label>
+	             <li class="list-group-item active" th:text="(((${empleado.desempenoA} + ${empleado.desempenoJ} + ${empleado.desempenoC}) / 3) +(( ${empleado.factorhumanoA} + ${empleado.factorhumanoJ} + ${empleado.factorhumanoC}) / 3) + ((${empleado.habilidadesA} + ${empleado.habilidadesJ} + ${empleado.habilidadesC}) / 3)) /3 "></li>
+	             																																																										
+	          
+	            
+	             </ul>
+	       </div>
+	   </div>
+	</div>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
